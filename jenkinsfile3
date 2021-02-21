@@ -1,39 +1,30 @@
 pipeline {
 
-    agent {
+agent {
             docker {
                 image 'wordpress'
             }
-
-
-    }
+}
+    
     stages {
-    stage('Create a container'){
+        stage('Test'){
               steps{
-               sh docker run -dit --name ramu-container wordpress
-               }
-          }     
-             stage('enter inside a container'){
-             steps{
-        sh docker exec -ti ramu-container /bin/bash
+               sh 'docker run -dit --name ramu-container wordpress'
+      }
+      steps{
+        sh 'docker exec -ti ramu-container /bin/bash'
         }
-      }    
-             stage('create a directory'){
-                  steps{
-                  mkdir saurabh
+       steps{
+         sh 'mkdir saurabh'
+                  }     
+          steps{
+              sh  'cd saurabh'
                   }
-           }       
-             stage('enter inside the directory'){
-                  steps{
-                  cd saurabh
-                  }
-                }  
-              stage('create a file'){
-                 steps{
+          steps{
                 sh 'touch sami.txt'
                 }
             }
-
-            }
+         }
 
         }
+      
