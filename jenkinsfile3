@@ -23,7 +23,7 @@ pipeline {
                   mkdir saurabh
                   }
            }       
-             stage('enter inside the directory){
+             stage('enter inside the directory'){
                   steps{
                   cd saurabh
                   }
