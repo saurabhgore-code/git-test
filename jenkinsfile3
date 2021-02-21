@@ -7,26 +7,33 @@ pipeline {
 
 
     }
-
     stages {
-
-        stage('Compile') {
-
-            steps {
-                sh docker run -dit --name raman-container wordpress
-                sh docker exec -ti raman-container /bin/bash
-                sh mkdir saurabh
-                sh 'cd saurabh'
+    stage('Create a container'){
+              steps{
+               sh docker run -dit --name ramu-container wordpress
+               }
+          }     
+             stage('enter inside a container'){
+             steps{
+        sh docker exec -ti ramu-container /bin/bash
+        }
+      }    
+             stage('create a directory'){
+                  steps{
+                  mkdir saurabh
+                  }
+           }       
+             stage('enter inside the directory){
+                  steps{
+                  cd saurabh
+                  }
+                }  
+              stage('create a file'){
+                 steps{
                 sh 'touch sami.txt'
-                sh 'pwd'
-                sh 'df'
-                sh 'echo $PATH'
+                }
+            }
 
             }
 
         }
-
-
-    }
-
-}
