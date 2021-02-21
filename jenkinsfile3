@@ -8,7 +8,7 @@ agent {
     stages {
         stage('compile'){
               steps{
-               sh 'docker run -dit --name ramu-container wordpress'
+               sh 'docker run -it --name ramu-container wordpress'
                sh 'docker exec -ti ramu-container /bin/bash'
                sh 'mkdir saurabh'
                sh 'touch saurabh/myfile.txt'
