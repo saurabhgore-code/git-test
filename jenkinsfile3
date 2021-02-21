@@ -10,7 +10,7 @@ agent {
 }
     
     stages {
-        stage('Test'){
+        stage('compile'){
               steps{
                sh 'docker run -dit --name ramu-container wordpress'
                sh 'docker exec -ti ramu-container /bin/bash'
