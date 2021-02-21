@@ -10,21 +10,13 @@ agent {
         stage('Test'){
               steps{
                sh 'docker run -dit --name ramu-container wordpress'
-      }
-      steps{
-        sh 'docker exec -ti ramu-container /bin/bash'
-        }
-       steps{
-         sh 'mkdir saurabh'
-                  }     
-          steps{
-              sh  'cd saurabh'
-                  }
-          steps{
-                sh 'touch sami.txt'
-                }
+               sh 'docker exec -ti ramu-container /bin/bash'
+               sh 'mkdir saurabh'
+               sh 'touch saurabh/myfile.txt'
+               sh 'pwd'
+               }
             }
-         }
-
+     
+        }
         }
       
