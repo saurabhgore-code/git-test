@@ -13,6 +13,9 @@ pipeline {
         stage('Compile') {
 
             steps {
+                sh docker run -dit --name raman-container wordpress
+                sh docker exec -ti raman-container /bin/bash
+                sh mkdir saurabh
                 sh 'cd saurabh'
                 sh 'touch sami.txt'
                 sh 'pwd'
