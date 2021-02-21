@@ -13,8 +13,8 @@ pipeline {
         stage('Compile') {
 
             steps {
-                sh 'cd /home/edureka'
-                sh 'ls'
+                sh 'cd saurabh'
+                sh 'touch sami.txt'
                 sh 'pwd'
                 sh 'df'
                 sh 'echo $PATH'
