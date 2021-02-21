@@ -1,5 +1,8 @@
 pipeline {
-
+environment {
+    registry = 'saurabhgore65/app-image'
+    registryCredential = 'sagoredockerid'
+}
 agent {
             docker {
                 image 'wordpress'
