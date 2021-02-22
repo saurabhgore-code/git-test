@@ -1,14 +1,13 @@
 pipeline {
-agent {
-            docker {
-                image 'wordpress'
-            }
+environment {
+    dockerImage = 'wordpress'
 }
+agent any
     
     stages {
         stage('compile'){
               steps{
-               sh 'docker run -it --name ramu-container wordpress'
+               sh 'docker run -dit  -p 8080:8080 --name ramu-container wordpress'
                sh 'docker exec -ti ramu-container /bin/bash'
                sh 'mkdir saurabh'
                sh 'touch saurabh/myfile.txt'
