@@ -7,11 +7,9 @@ agent any
     stages {
         stage('compile'){
               steps{
-               sh 'docker run -dit  -p 8081:8080 --name ramu-container wordpress'
-               sh 'docker exec -ti ramu-container /bin/bash'
-               sh 'mkdir saurabh'
-               sh 'touch saurabh/myfile.txt'
-               sh 'pwd'
+           
+               sh 'docker stop ramu-container'
+               sh 'docker rename ramu-container suresh-container'
                }
             }
      
