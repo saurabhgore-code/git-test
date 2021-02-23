@@ -8,7 +8,7 @@ agent any
         stage('compile'){
               steps{
            
-               sh 'docker run -dit -p 8081:8080 --name 'manu-container' wordpress
+               sh 'docker run -dit -p 8081:8080 --name manu-container wordpress'
           
                }
             }
