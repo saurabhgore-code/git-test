@@ -8,8 +8,8 @@ agent any
         stage('compile'){
               steps{
            
-               sh 'docker stop ramu-container'
-               sh 'docker rename ramu-container suresh-container'
+               sh 'docker run -dit -p 8081:8080 --name 'manu-container' wordpress
+          
                }
             }
      
