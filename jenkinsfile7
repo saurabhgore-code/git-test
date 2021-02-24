@@ -2,7 +2,6 @@ pipeline {
   environment {
     registry = 'saurabhgore65/saurabh-website-image'
     registryCredential = 'sagoredockerid'
-    dockerImage = ''
 }
   agent any
 stages {
