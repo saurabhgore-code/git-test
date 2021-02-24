@@ -1,18 +1,15 @@
 pipeline {
+agent { dockerfile true 
+ }
      environment {
     registry = 'saurabhgore65/saurabh-website-image'
     registryCredential = 'sagoredockerid'
     dockerImage = ''
 }
-}
- agent { dockerfile true 
- }
-    
-    stages {
+ stages {
         stage('compile'){
               steps{
-           
-               sh 'docker images'
+          sh 'docker images'
          }
             }
          stage('Deploy Image') {
@@ -25,4 +22,4 @@ pipeline {
       }   
     }
   }
-      
+}      
