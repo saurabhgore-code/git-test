@@ -14,12 +14,7 @@ agent any
              }
          }
         }
-     stage('Compile'){
-        steps{
-        'sh docker images'
-        }
-      }  
- }
+    
  stage('Deploy Image') {
           steps{
              script{
@@ -30,4 +25,5 @@ agent any
       }
    
    }
+}
 }
