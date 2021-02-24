@@ -12,7 +12,7 @@ pipeline {
 stages {
        stage('Create a container') {
          steps{
-       sh 'docker run -dit -p 8082:8080 --name new-container saurabhgore65/new-tag'
+       sh 'docker run -dit -p 1234:1234 --name new-container saurabhgore65/new-tag'
         }
   }
    }
