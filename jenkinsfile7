@@ -3,7 +3,12 @@ pipeline {
     registry = 'saurabhgore65/saurabh-website-image'
     registryCredential = 'sagoredockerid'
 }
-  agent any
+  agent {
+  docker {
+    alwaysPull true
+    image 'saurabh-website-image'
+  }
+}
 stages {
        stage('pull Image') {
           steps{
