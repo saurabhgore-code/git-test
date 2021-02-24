@@ -1,0 +1,13 @@
+pipeline {
+  environment {
+    dockerImage = 'wordpress'
+}
+agent any
+stages{  
+stage('stop a container') {
+         steps{
+       sh 'docker stop saurabh-container'
+        }
+  }
+   }
+}
