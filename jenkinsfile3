@@ -1,25 +1,28 @@
 pipeline {
-environment {
-    registry = 'saurabhgore65/app-image'
+     environment {
+    registry = 'saurabhgore65/saurabh-website-image'
     registryCredential = 'sagoredockerid'
+    dockerImage = ''
 }
-agent {
-            docker {
-                image 'wordpress'
-            }
 }
+ agent { dockerfile true 
+ }
     
     stages {
-        stage('Test'){
+        stage('compile'){
               steps{
-               sh 'docker run -dit --name ramu-container wordpress'
-               sh 'docker exec -ti ramu-container /bin/bash'
-               sh 'mkdir saurabh'
-               sh 'touch saurabh/myfile.txt'
-               sh 'pwd'
-               }
+           
+               sh 'docker images'
+         }
             }
-     
-        }
-        }
+         stage('Deploy Image') {
+          steps{
+             script{
+                 docker.withRegistry( '', registryCredential ) {
+               dockerImage.push()  
+                }
+            }
+      }   
+    }
+  }
       
