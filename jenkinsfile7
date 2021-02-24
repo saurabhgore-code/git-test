@@ -1,0 +1,23 @@
+pipeline {
+  environment {
+    registry = 'saurabhgore65/suarabh-website-image'
+    registryCredential = 'sagoredockerid'
+    dockerImage = ''
+}
+  agent any
+stages {
+       stage('pull Image') {
+          steps{
+             script{
+                 docker.withRegistry( '', registryCredential ) {
+               dockerImage.pull()  
+                }
+            }
+      }
+    }
+    stage('Test'){
+       steps{  'sh docker tag saurabhgore65/saurabh-website-image:35 saurabhgore65/saurabh-website-image:70'
+       }
+      } 
+    }
+   }
