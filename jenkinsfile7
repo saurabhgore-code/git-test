@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = 'saurabhgore65/suarabh-website-image'
+    registry = 'saurabhgore65/saurabh-website-image'
     registryCredential = 'sagoredockerid'
     dockerImage = ''
 }
