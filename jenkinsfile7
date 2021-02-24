@@ -6,7 +6,7 @@ pipeline {
   agent {
   docker {
     alwaysPull true
-    image 'saurabh-website-image'
+    image 'saurabhgore65/new-tag'
   }
 }
 stages {
