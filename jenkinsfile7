@@ -15,9 +15,5 @@ stages {
             }
       }
     }
-    stage('Test'){
-       steps{  'sh docker tag saurabhgore65/saurabh-website-image:35 saurabhgore65/saurabh-website-image:70'
-       }
-      } 
-    }
+  }
    }
