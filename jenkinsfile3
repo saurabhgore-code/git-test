@@ -1,18 +1,28 @@
 pipeline {
-environment {
-    dockerImage = 'wordpress'
+     environment {
+    registry = 'saurabhgore65/saurabh-website-image'
+    registryCredential = 'sagoredockerid'
+    dockerImage = ''
 }
-agent any
+}
+ agent { dockerfile true 
+ }
     
     stages {
         stage('compile'){
               steps{
            
-               sh 'docker run -dit -p 8081:8080 --name manu-container wordpress'
-          
-               }
+               sh 'docker images'
+         }
             }
-     
-        }
-        }
+         stage('Deploy Image') {
+          steps{
+             script{
+                 docker.withRegistry( '', registryCredential ) {
+               dockerImage.push()  
+                }
+            }
+      }   
+    }
+  }
       
